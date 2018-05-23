@@ -115,7 +115,86 @@ public class Firsttask {
     public String inttostring(int[] ein){
         String aus = "";
         for (int i = 0; i < ein.length; i++){
-            aus = aus + ein[i];
+            switch (ein[i]) {
+                case 0:
+                    aus = aus +"A";
+                    break;
+                case 1:
+                    aus = aus +"B";
+                    break;
+                case 2:
+                    aus = aus +"C";
+                    break;
+                case 3:
+                    aus = aus +"D";
+                    break;
+                case 4:
+                    aus = aus +"E";
+                    break;
+                case 5:
+                    aus = aus +"F";
+                    break;
+                case 6:
+                    aus = aus +"G";
+                    break;
+                case 7:
+                    aus = aus +"H";
+                    break;
+                case 8:
+                    aus = aus +"I";
+                    break;
+                case 9:
+                    aus = aus +"J";
+                    break;
+                case 10:
+                    aus = aus +"K";
+                    break;
+                case 11:
+                    aus = aus +"L";
+                    break;
+                case 12:
+                    aus = aus +"M";
+                    break;
+                case 13:
+                    aus = aus +"N";
+                    break;
+                case 14:
+                    aus = aus +"O";
+                    break;
+                case 15:
+                    aus = aus +"P";
+                    break;
+                case 16:
+                    aus = aus +"Q";
+                    break;
+                case 17:
+                    aus = aus +"R";
+                    break;
+                case 18:
+                    aus = aus +"S";
+                    break;
+                case 19:
+                    aus = aus +"T";
+                    break;
+                case 20:
+                    aus = aus +"U";
+                    break;
+                case 21:
+                    aus = aus +"V";
+                    break;
+                case 22:
+                    aus = aus +"W";
+                    break;
+                case 23:
+                    aus = aus +"X";
+                    break;
+                case 24:
+                    aus = aus +"Y";
+                    break;
+                case 25:
+                    aus = aus +"Z";
+
+            }
         }
         return aus;
     }
@@ -124,7 +203,7 @@ public class Firsttask {
         int[] voraus = new int[chipher.length];
         int zwischen;
         for (int i = 0; i < chipher.length; i++){
-           zwischen = (chipher[i] - ((key[i+offset]*10)+key[i+offset+1]))%26;
+           zwischen = Math.floorMod((chipher[i] - (key[i+offset]*10)+key[i+offset+1]),26);
            voraus[i] = zwischen;
         }
         return inttostring(voraus);
@@ -132,6 +211,7 @@ public class Firsttask {
     public void dechifftestall(int durchgänge,String chiffrat){
         for (int i = 0; i <= durchgänge; i++ ){
             System.out.println(dechiff(tonumbers(chiffrat),stringtoint(key),i));
+            System.out.println(" ");
         }
     }
 
