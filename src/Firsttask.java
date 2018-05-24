@@ -26,7 +26,7 @@ public class Firsttask {
         int t;
         for (int i = 0; i < chipher.length(); i++){
             if (i%2 == 0){
-                t = i /2;
+                t = i/2;
                 switch (arraychipher[i]) {
                     case "A":
                         ergebnis[t] = 0;
@@ -202,9 +202,13 @@ public class Firsttask {
     public String dechiff(int[] chipher, int[] key, int offset){
         int[] voraus = new int[chipher.length];
         int zwischen;
+        int t=0;
         for (int i = 0; i < chipher.length; i++){
-           zwischen = Math.floorMod((chipher[i] - (key[i+offset]*10)+key[i+offset+1]),26);
+
+           zwischen = Math.floorMod((chipher[i] - (key[t+offset]*10)+key[t+offset+1]),26);
            voraus[i] = zwischen;
+           t++;
+           t++;
         }
         return inttostring(voraus);
     }
