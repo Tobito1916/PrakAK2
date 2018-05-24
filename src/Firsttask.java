@@ -6,10 +6,13 @@ public class Firsttask {
     public Firsttask() throws IOException {
         Read in = new Read();
         String chiffrattext = in.readin("mtc3-esslinger-06-onetimepad-cipher.txt");
-        dechifftestall(101,chiffrattext);
+        dechifftestall(202,chiffrattext);
 
 
     }
+
+
+
     //Hilfsmethoden
     public int[] stringtoint(String[] ein){
         int[] aus = new int[ein.length];
@@ -19,7 +22,7 @@ public class Firsttask {
         return aus;
     }
     public int[] tonumbers(String chipher){
-        String[] arraychipher = new String[chipher.length()];
+        String[] arraychipher;
         arraychipher = chipher.split("");
 
         int[] ergebnis = new int[arraychipher.length/2 +1];
@@ -205,16 +208,15 @@ public class Firsttask {
         int t=0;
         for (int i = 0; i < chipher.length; i++){
 
-           zwischen = Math.floorMod((chipher[i] - (key[t+offset]*10)+key[t+offset+1]),26);
-           voraus[i] = zwischen;
-           t++;
-           t++;
+           zwischen = ((chipher[i] - ((key[t+offset]*10)+key[t+offset+1]))+260)%26;
+            voraus[i] = zwischen;
+            t = t+2;
         }
         return inttostring(voraus);
     }
     public void dechifftestall(int durchgänge,String chiffrat){
         for (int i = 0; i <= durchgänge; i++ ){
-            System.out.println(dechiff(tonumbers(chiffrat),stringtoint(key),i));
+            System.out.println(i + ": "+ dechiff(tonumbers(chiffrat),stringtoint(key),i));
             System.out.println(" ");
         }
     }
